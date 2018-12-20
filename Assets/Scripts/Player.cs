@@ -108,6 +108,9 @@ public class Player : MonoBehaviour {
             case "Teleport":
                 transform.position = hit.transform.GetChild(0).position;
                 break;
+            case "Winbox":
+                LevelManager.Instance.Win();
+                break;
             default:
                 break;
         }

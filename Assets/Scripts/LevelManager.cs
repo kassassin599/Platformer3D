@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
+    public static LevelManager Instance { set; get; }
+
     private int hitpoint = 3;
     private int score = 0;
 
     public Transform spawnPosition;
 
     public Transform playerTransform;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	private void Awake()
+    {
+        Instance = this;
+    }
+    // Update is called once per frame
+    void Update () {
         if (playerTransform.position.y < -10)
         {
             playerTransform.position = spawnPosition.position;
@@ -27,4 +28,9 @@ public class LevelManager : MonoBehaviour {
             }
         }
 	}
+
+    public void Win()
+    {
+        print("WIn");
+    }
 }
